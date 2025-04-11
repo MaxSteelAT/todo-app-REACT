@@ -1,23 +1,24 @@
 import './App.scss';
 import moment from 'moment'
 import { useState, useEffect } from 'react'
-import header from './components/header/header'
-import darkMode from './components/darkMode/darkMode'
-import input from './components/input/input'
-import list from './components/list/list'
-import filter from './components/filter/filter'
-import dragDropText from './components/dragDropText/deagDropText'
+import Header from './components/header/header'
+import DarkMode from './components/darkMode/darkMode'
+import Input from './components/input/input'
+import List from './components/list/list'
+import Filter from './components/filter/filter'
+import DragDropText from './components/dragDropText/deagDropText'
 
 
 function App() {
 
   return (
     <div className="App">
-      <header/>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <Header/>
+       <DarkMode />
+      {/*<Input />
+      <List />
+      <Filter />
+      <DragDropText /> */}
     </div>
   );
 }
