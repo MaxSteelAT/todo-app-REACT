@@ -6,6 +6,7 @@ function App() {
 
   return (
     <div className="header">
+      <h3 className='header-text'>TO DO</h3>
     </div>
   );
 }
