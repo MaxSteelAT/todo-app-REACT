@@ -5,7 +5,8 @@ function App() {
  
 
   return (
-    <div className="header">
+    <div className="darkMode">
+      <div className='darMode-icon'>🌞</div>
     </div>
   );
 }
