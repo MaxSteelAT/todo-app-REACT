@@ -1,13 +1,14 @@
 import './input.scss'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
-function App() {
+function Input() {
  
 
   return (
     <div className="header">
+<input type="text" class="todo-input" placeholder="Create a new todo..." />
     </div>
   );
 }
 
-export default App;
+export default Input;
