@@ -1,55 +1,35 @@
 import './list.scss'
+import { useDispatch, useSelector } from "react-redux";
+import { setList } from "../../redux/list";
 import { useState, useEffect } from 'react'
+//import {useSelector} from "react-redux";
+
+
 
 function List() {
-  const [list, setList]= useState([
-    {
-      done: true,
-      text: 'Complete online JavaScript course'
-    },
-    {
-      done: false,
-      text: 'Jog around the park 3x'
-    },
-    {
-      done: true,
-      text: '10 minutes meditation'
-    },
-    {
-      done: true,
-      text: 'Read for 1 hour'
-    },
-    {
-      done: true,
-      text: 'Pick up groceries'
-    },
-    {
-      done: true,
-      text: 'Complete Todo App on Frontend Mentor'
-    }
-  ])
+  const data = useSelector((state) => state.list)
+  const dispatch = useDispatch();
 
   const handleChange = (indexSelected) => {
-    const listUpdated = list.map((item, index)=>{
-      if(indexSelected == index){
+    const listUpdated = data.map((item, index)=>{
+      if(indexSelected === index){
         return {
           // ...item,
           text: item.text,
-          done: item.done == true ? false : true,
-
+          done: item.done === true ? false : true,
         }
       }
-      return item
+      return item  
     })
 
-    setList(listUpdated)
+     dispatch(setList(listUpdated))
   }
 
   return (
     <div className="todo-list">
       <div>
         <div>
-          {list.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <label className="input-label">
                 <input onChange={()=>handleChange(index)} type="checkbox" className="todo-checkbox" checked={item.done} />
