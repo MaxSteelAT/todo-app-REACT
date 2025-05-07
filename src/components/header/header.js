@@ -1,7 +1,7 @@
 import './header.scss'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
-function App() {
+function Header() {
  
 
   return (
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default Header;
