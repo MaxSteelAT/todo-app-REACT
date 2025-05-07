@@ -1,5 +1,14 @@
 .darkMode{
-  display: flex;
-  justify-content: center;
   margin-top: 80px;
+  margin-right: 10px;
+}
+
+.darkMode-icon {
+align-items: right;
+}
+
+button{
+  align-items: right;
+  background-color: #0000;
+  border-style: hidden;
 }
