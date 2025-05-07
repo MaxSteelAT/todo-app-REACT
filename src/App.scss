@@ -52,13 +52,51 @@ body {
   background-repeat: no-repeat;
 }
 
-.App {
+.header-container{
+  width: 600px;
+  //width: 100%;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  margin-top: 60px;
+  margin: 0;
 }
 
+.App {
+  width: 100vw;
+  //height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.list-container{
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-container{
+  width: 600px;
+  padding: 15px 20px;
+  border: none;
+  background-color: #25273c;
+  color: white;
+  height: 70px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.todo-container{
+  width: 50%;
+}
+
+.darkMode-container{
+  width: 50%;
+  text-align: end;
+}
 .color {
   color: Blue hsl(220, 98%, 61%);
   color: hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
