@@ -1,12 +1,13 @@
-import './input.scss'
-// import { useState, useEffect } from 'react'
+import React from 'react';
+import './input.scss';
+import { useSelector } from 'react-redux';
 
 function Input() {
- 
-
+  const darkMode = useSelector((state) => state.darkMode);
+console.log(darkMode)
   return (
     <div className="header">
-<input type="text" class="todo-input" placeholder="Create a new todo..." />
+      <input type="text" className={`todo-input ${darkMode ? 'dark' : ''}`} placeholder="Create a new todo..." />
     </div>
   );
 }
