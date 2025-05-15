@@ -45,9 +45,18 @@
 //   }
 // }
 
-body {
+body.dark {
   background-color: hsl(235, 24%, 19%);
   background-image: url('./assets/images/bg-desktop-dark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  background-color: hsl(0, 0%, 98%);
+  background-image: url('./assets/images/bg-desktop-light.jpg');
+  
   background-size: cover;
   background-repeat: no-repeat;
 }
