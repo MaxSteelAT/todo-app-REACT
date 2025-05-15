@@ -1,12 +1,12 @@
 import './list.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { setList } from "../../redux/list";
-import { useState, useEffect } from 'react'
-//import {useSelector} from "react-redux";
-
 
 
 function List() {
+  const darkMode = useSelector((state) => state.darkMode);
+  console.log(darkMode)
+  
   const data = useSelector((state) => state.list)
   const dispatch = useDispatch();
 
@@ -24,15 +24,16 @@ function List() {
 
      dispatch(setList(listUpdated))
   }
+  
 
   return (
-    <div className="todo-list">
+    <div className={`todo-list ${darkMode ? 'dark' : ''}`}>
       <div>
         <div>
           {data.map((item, index) => {
             return (
               <label className="input-label">
-                <input onChange={()=>handleChange(index)} type="checkbox" className="todo-checkbox" checked={item.done} />
+                <input onChange={()=>handleChange(index)} type="checkbox" className="todo-checkbox"  checked={item.done} />
                 <span>{item.text}</span>
               </label>
             )

@@ -1,5 +1,12 @@
+.todo-list.dark {
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 .todo-list {
-  background-color: #25273c;
+  background-color: hsl(0, 0%, 98%);
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
@@ -38,10 +45,13 @@
   align-items: center;
   border-style: solid;
   border-width: 0 0 1px 0;
-  border-color: #35374c;
+  border-color: #35374c3b;
+  //#35374c;
   font-size: 20px;
   height: 70px;
 }
+
+
 
 // .todo-item.completed span {
 //   text-decoration: line-through;
