@@ -3,50 +3,45 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   {
     done: true,
-    text: 'Complete online JavaScript course'
+    text: "Complete online JavaScript course",
   },
   {
     done: false,
-    text: 'Jog around the park 3x'
+    text: "Jog around the park 3x",
   },
   {
     done: true,
-    text: '10 minutes meditation'
+    text: "10 minutes meditation",
   },
   {
     done: true,
-    text: 'Read for 1 hour'
+    text: "Read for 1 hour",
   },
   {
     done: true,
-    text: 'Pick up groceries'
+    text: "Pick up groceries",
   },
   {
     done: true,
-    text: 'Complete Todo App on Frontend Mentor'
-  }
-]
+    text: "Complete Todo App on Frontend Mentor",
+  },
+];
 
 const listSlice = createSlice({
-  name: 'list',
+  name: "list",
   initialState: initialState,
-  reducers:{
-    addItem:(state, action) => {
-
-      
+  reducers: {
+    addItem: (state, action) => {
+      state.unshift({ text: action.payload, done: false });
     },
-    deleteItem:(state, action) => {
-
-    },
-    checkItem:(state, action) =>{
-
-    },
+    deleteItem: (state, action) => {},
+    checkItem: (state, action) => {},
     setList: (state, action) => {
-      console.log(action.payload)
+      console.log(action.payload);
       return action.payload;
     },
-  }
+  },
 });
 
-export const {addItem, deleteItem, checkItem, setList} = listSlice.actions;
+export const { addItem, deleteItem, checkItem, setList } = listSlice.actions;
 export default listSlice.reducer;
