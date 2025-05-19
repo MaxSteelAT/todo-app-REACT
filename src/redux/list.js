@@ -32,16 +32,17 @@ const listSlice = createSlice({
   initialState: initialState,
   reducers: {
     addItem: (state, action) => {
-      state.unshift({ text: action.payload, done: false });
+      return state.unshift({ text: action.payload, done: false });
     },
-    deleteItem: (state, action) => {},
-    checkItem: (state, action) => {},
+    clearItemsCompleted: (state) => {
+      return state.filter((item) => item.done === false);
+    },
     setList: (state, action) => {
-      console.log(action.payload);
       return action.payload;
     },
   },
 });
 
-export const { addItem, deleteItem, checkItem, setList } = listSlice.actions;
+export const { addItem, deleteItem, checkItem, setList, clearItemsCompleted } =
+  listSlice.actions;
 export default listSlice.reducer;

@@ -1,11 +1,17 @@
 import "./filter.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { createSlice } from "@reduxjs/toolkit";
+import { clearItemsCompleted } from "../../redux/list";
 
 function App() {
   const darkMode = useSelector((state) => state.darkMode);
 
   const listLength = useSelector((state) => state.list.length);
 
+  const dispatch = useDispatch();
+  const handleClearItemsCompleted = () => {
+    dispatch(clearItemsCompleted());
+  };
   return (
     <div className={`filter-container ${darkMode ? "dark" : ""}`}>
       <div className="filter">
@@ -16,7 +22,9 @@ function App() {
             <div className="element-filter">Active</div>
             <div className="element-filter">Completed</div>
           </div>
-          <div class="col-6 col-md-4 colums">Clear Completed</div>
+          <div class="col-6 col-md-4 colums">
+            <a onClick={handleClearItemsCompleted}>Clear Completed</a>
+          </div>
         </div>
       </div>
     </div>

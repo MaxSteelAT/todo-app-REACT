@@ -4,11 +4,9 @@ import { setList } from "../../redux/list";
 
 function List() {
   const darkMode = useSelector((state) => state.darkMode);
-  console.log(darkMode);
 
   const data = useSelector((state) => state.list);
   const dispatch = useDispatch();
-  console.log(data.text);
 
   const handleChange = (indexSelected) => {
     const listUpdated = data.map((item, index) => {
