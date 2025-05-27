@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
+const tasks = [
   {
     done: true,
     text: "Complete online JavaScript course",
@@ -26,23 +26,58 @@ const initialState = [
     text: "Complete Todo App on Frontend Mentor",
   },
 ];
-
 const listSlice = createSlice({
   name: "list",
-  initialState: initialState,
+  initialState: {
+    data: tasks,
+    filterType: "all",
+  },
   reducers: {
     addItem: (state, action) => {
-      return state.unshift({ text: action.payload, done: false });
+      return state.data.unshift({ text: action.payload, done: false });
+    },
+    itemsActive: (state) => {
+      return {
+        data: state.data,
+        filterType: "active",
+      };
+    },
+    itemsCompleted: (state) => {
+      return {
+        data: state.data,
+        filterType: "completed",
+      };
+    },
+    itemsAll: (state) => {
+      return {
+        data: state.data,
+        filterType: "all",
+      };
     },
     clearItemsCompleted: (state) => {
-      return state.filter((item) => item.done === false);
+      const clearList = state.data.filter((item) => item.done === false);
+      return {
+        data: clearList,
+        filterType: state.filterType,
+      };
     },
     setList: (state, action) => {
-      return action.payload;
+      return {
+        data: action.payload,
+        filterType: state.filterType,
+      };
     },
   },
 });
 
-export const { addItem, deleteItem, checkItem, setList, clearItemsCompleted } =
-  listSlice.actions;
+export const {
+  addItem,
+  itemsAll,
+  itemsActive,
+  deleteItem,
+  checkItem,
+  setList,
+  itemsCompleted,
+  clearItemsCompleted,
+} = listSlice.actions;
 export default listSlice.reducer;

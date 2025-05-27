@@ -1,15 +1,33 @@
 import "./list.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setList } from "../../redux/list";
+import { useState, useEffect } from "react";
 
 function List() {
   const darkMode = useSelector((state) => state.darkMode);
-
-  const data = useSelector((state) => state.list);
+  const list = useSelector((state) => state.list);
+  const [tasks, setTasks] = useState(list.data);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setTasks(list.data);
+  }, [list.data]);
+
+  useEffect(() => {
+    if (list.filterType === "active") {
+      setTasks(list.data.filter((item) => item.done === false));
+    }
+    if (list.filterType === "completed") {
+      setTasks(list.data.filter((item) => item.done === true));
+    }
+    if (list.filterType === "all") {
+      setTasks(list.data);
+    }
+    console.log("holis effect");
+  }, [list.filterType, list.data]);
+
   const handleChange = (indexSelected) => {
-    const listUpdated = data.map((item, index) => {
+    const listUpdated = list.data.map((item, index) => {
       if (indexSelected === index) {
         return {
           // ...item,
@@ -27,7 +45,7 @@ function List() {
     <div className={`todo-list ${darkMode ? "dark" : ""}`}>
       <div>
         <div>
-          {data.map((item, index) => {
+          {tasks.map((item, index) => {
             return (
               <label className="input-label">
                 <input
